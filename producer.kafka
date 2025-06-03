@@ -5,8 +5,16 @@ record content
 
 ###
 
-PRODUCER non-keyed-json-message
+PRODUCER keyed-message
 topic: example-topic
+headers: messageId={{random.uuid}}, version={{system.semver}}, contentType=application/json
+-- key: dept-{{random.number(5)}}
 {
-    "type": "my_test_event-{{random.number}}"
+    "dept": {{random.number(5)}},
+    "ts": {{time.recent}},
+    "id": "{{random.uuid}}",
+    "first_name": "{{name.firstName}}",
+    "last_name": "{{name.lastName}}",
+    "email": "{{internet.email}}",
+    "country": "{{address.country}}"
 }

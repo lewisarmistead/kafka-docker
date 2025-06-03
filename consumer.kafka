@@ -2,3 +2,8 @@ CONSUMER consumer-group-id
 topic: example-topic
 partitions: 0
 from: 1
+
+CONSUMER transformed-message
+topic: example-topic-transformed
+partitions: 0
+from: 1
